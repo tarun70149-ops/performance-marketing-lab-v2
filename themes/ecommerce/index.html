@@ -423,6 +423,38 @@
       position: relative;
     }
 
+    /* PRODUCT PAGE LINK */
+
+    .product-image-link {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: inherit;
+      transition: 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .product-image-link:hover {
+      transform: scale(1.05);
+    }
+
+    .sale-badge,
+    .wishlist {
+      z-index: 2;
+    }
+
+    .product-title-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .product-title-link:hover {
+      color: #2563eb;
+    }
+
     .sale-badge {
       position: absolute;
       top: 12px;
@@ -1180,7 +1212,14 @@
             ♡
           </button>
 
-          🎧
+          <a
+            href="product.html"
+            class="product-image-link"
+            data-event="view_content"
+            aria-label="View Wireless Headphones product"
+          >
+            🎧
+          </a>
 
         </div>
 
@@ -1192,7 +1231,13 @@
           </div>
 
           <h3 class="product-title">
-            Wireless Headphones
+            <a
+              href="product.html"
+              class="product-title-link"
+              data-event="view_content"
+            >
+              Wireless Headphones
+            </a>
           </h3>
 
           <div class="rating">
