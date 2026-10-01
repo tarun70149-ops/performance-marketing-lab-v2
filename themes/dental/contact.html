@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Book an Appointment | Jaipur Smile Dental Care</title>
+
+  <meta
+    name="description"
+    content="Book a dental appointment with Jaipur Smile Dental Care. Choose your treatment, preferred date and time, and send your appointment request."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f9fc;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1180px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f766e;
+    }
+
+    .logo span {
+      color: #111827;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .nav-links a:hover {
+      color: #0f766e;
+    }
+
+    .nav-btn {
+      background: #0f766e;
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 8px;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: linear-gradient(135deg, #ecfeff, #ffffff);
+      padding: 65px 20px;
+      text-align: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #ccfbf1;
+      color: #0f766e;
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.2;
+      margin-bottom: 15px;
+      color: #111827;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #6b7280;
+      font-size: 17px;
+    }
+
+    /* MAIN */
+
+    .main-container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    /* LEFT INFO */
+
+    .info-card {
+      background: #0f766e;
+      color: white;
+      border-radius: 16px;
+      padding: 35px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .info-card h2 {
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .info-card > p {
+      color: #d1fae5;
+      margin-bottom: 28px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 22px;
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+
+    .info-item strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .info-item span {
+      color: #d1fae5;
+      font-size: 14px;
+    }
+
+    .trust-box {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .trust-box p {
+      font-size: 14px;
+      color: #d1fae5;
+      margin-bottom: 8px;
+    }
+
+    /* FORM */
+
+    .form-card {
+      background: white;
+      border-radius: 16px;
+      padding: 38px;
+      box-shadow: 0 10px 35px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .form-card h2 {
+      font-size: 28px;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .form-intro {
+      color: #6b7280;
+      margin-bottom: 28px;
+      font-size: 15px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 19px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #374151;
+    }
+
+    label span {
+      color: #dc2626;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 15px;
+      color: #111827;
+      background: #ffffff;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #0f766e;
+      box-shadow: 0 0 0 3px rgba(15,118,110,0.1);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .consent {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 5px 0 22px;
+    }
+
+    .consent input {
+      width: auto;
+      margin-top: 4px;
+    }
+
+    .consent label {
+      font-size: 13px;
+      font-weight: 400;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      background: #0f766e;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 9px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: #115e59;
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      text-align: center;
+      margin-top: 14px;
+      color: #9ca3af;
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111827;
+      color: white;
+      padding: 30px 20px;
+      margin-top: 70px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-container p {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+    .back-home {
+      color: #5eead4;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .nav-links a:not(.nav-btn) {
+        display: none;
+      }
+
+      .hero {
+        padding: 45px 20px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .main-container {
+        grid-template-columns: 1fr;
+        margin-top: 30px;
+      }
+
+      .info-card {
+        position: static;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .form-card,
+      .info-card {
+        padding: 25px;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <nav class="navbar">
+
+      <a href="index.html" class="logo">
+        Jaipur <span>Smile Dental Care</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#treatments">Treatments</a>
+
+        <a
+          href="#appointment"
+          class="nav-btn"
+          data-event="appointment_cta_click"
+        >
+          Book Appointment
+        </a>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-badge">
+      🦷 Appointment Request
+    </div>
+
+    <h1>Book Your Dental Appointment</h1>
+
+    <p>
+      Tell us a little about yourself and your dental requirement.
+      Our team will contact you to confirm your appointment.
+    </p>
+
+  </section>
+
+
+  <!-- MAIN -->
+
+  <main class="main-container">
+
+    <!-- LEFT INFORMATION -->
+
+    <div class="info-card">
+
+      <h2>Let's Take Care of Your Smile</h2>
+
+      <p>
+        Fill out the appointment form and our dental care team
+        will get in touch with you.
+      </p>
+
+
+      <div class="info-item">
+
+        <div class="info-icon">📞</div>
+
+        <div>
+          <strong>Call Us</strong>
+          <span>+91 98765 43210</span>
+        </div>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <div class="info-icon">📍</div>
+
+        <div>
+          <strong>Location</strong>
+          <span>Jaipur, Rajasthan</span>
+        </div>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <div class="info-icon">⏰</div>
+
+        <div>
+          <strong>Clinic Hours</strong>
+          <span>Mon – Sat · 9:00 AM – 8:00 PM</span>
+        </div>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <div class="info-icon">⭐</div>
+
+        <div>
+          <strong>Patient Experience</strong>
+          <span>Trusted dental care for families</span>
+        </div>
+
+      </div>
+
+
+      <div class="trust-box">
+
+        <p>✓ Experienced dental professionals</p>
+        <p>✓ Modern treatment approach</p>
+        <p>✓ Patient-focused consultation</p>
+
+      </div>
+
+    </div>
+
+
+    <!-- APPOINTMENT FORM -->
+
+    <div
+      class="form-card"
+      id="appointment"
+      data-event="form_view"
+    >
+
+      <h2>Appointment Details</h2>
+
+      <p class="form-intro">
+        Please provide your details below. Fields marked with
+        <strong>*</strong> are required.
+      </p>
+
+
+      <form
+        id="appointment-form"
+        data-form="appointment"
+        data-event="form_submit"
+      >
+
+        <!-- NAME + PHONE -->
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="name">
+              Full Name <span>*</span>
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="phone">
+              Phone Number <span>*</span>
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Enter your phone number"
+              autocomplete="tel"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- EMAIL + TREATMENT -->
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="email">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              autocomplete="email"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="treatment">
+              Treatment Required <span>*</span>
+            </label>
+
+            <select
+              id="treatment"
+              name="treatment"
+              required
+            >
+
+              <option value="">
+                Select a treatment
+              </option>
+
+              <option value="Dental Cleaning">
+                Dental Cleaning
+              </option>
+
+              <option value="Teeth Whitening">
+                Teeth Whitening
+              </option>
+
+              <option value="Braces & Aligners">
+                Braces & Aligners
+              </option>
+
+              <option value="Root Canal">
+                Root Canal
+              </option>
+
+              <option value="Dental Crowns">
+                Dental Crowns
+              </option>
+
+              <option value="Smile Makeover">
+                Smile Makeover
+              </option>
+
+              <option value="General Consultation">
+                General Consultation
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <!-- DATE + TIME -->
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="date">
+              Preferred Date <span>*</span>
+            </label>
+
+            <input
+              type="date"
+              id="date"
+              name="date"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="time">
+              Preferred Time <span>*</span>
+            </label>
+
+            <select
+              id="time"
+              name="time"
+              required
+            >
+
+              <option value="">
+                Select a time
+              </option>
+
+              <option value="09:00 AM - 11:00 AM">
+                09:00 AM – 11:00 AM
+              </option>
+
+              <option value="11:00 AM - 01:00 PM">
+                11:00 AM – 01:00 PM
+              </option>
+
+              <option value="02:00 PM - 04:00 PM">
+                02:00 PM – 04:00 PM
+              </option>
+
+              <option value="04:00 PM - 06:00 PM">
+                04:00 PM – 06:00 PM
+              </option>
+
+              <option value="06:00 PM - 08:00 PM">
+                06:00 PM – 08:00 PM
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="form-group">
+
+          <label for="message">
+            Message / Dental Concern
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Tell us briefly about your dental concern..."
+          ></textarea>
+
+        </div>
+
+
+        <!-- CONSENT -->
+
+        <div class="consent">
+
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            required
+          >
+
+          <label for="consent">
+            I agree to be contacted by Jaipur Smile Dental Care
+            regarding my appointment request.
+          </label>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          class="submit-btn"
+          data-event="form_submit"
+        >
+          Book My Appointment →
+        </button>
+
+
+        <p class="form-note">
+          Your information is used only for appointment communication.
+        </p>
+
+      </form>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-container">
+
+      <p>
+        © 2026 Jaipur Smile Dental Care. Demo Performance Marketing Lab.
+      </p>
+
+      <a href="index.html" class="back-home">
+        ← Back to Home
+      </a>
+
+    </div>
+
+  </footer>
+
+
+  <!-- BASIC FORM BEHAVIOUR -->
+
+  <script>
+
+    const appointmentForm =
+      document.getElementById("appointment-form");
+
+    appointmentForm.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      /*
+        Tracking-ready form.
+
+        Future events:
+
+        form_view
+        form_start
+        form_submit
+        lead
+
+        Actual tracking will be implemented later
+        using DataLayer + GTM + Meta Pixel + GA4.
+      */
+
+      alert(
+        "Demo appointment submitted successfully. Thank you!"
+      );
+
+    });
+
+  </script>
+
+</body>
+</html>
