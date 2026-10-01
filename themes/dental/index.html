@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Jaipur Smile Dental Care - Professional dental care and appointment booking."
+    >
+
+    <title>Jaipur Smile Dental Care</title>
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #ffffff;
+
+            color: #172033;
+
+            line-height: 1.6;
+
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+
+            width: min(
+                1180px,
+                calc(100% - 40px)
+            );
+
+            margin: auto;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .top-bar {
+
+            background: #102a43;
+
+            color: #ffffff;
+
+            font-size: 13px;
+
+        }
+
+
+        .top-bar-inner {
+
+            min-height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .top-contact {
+
+            display: flex;
+
+            gap: 22px;
+
+        }
+
+
+        .header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background: #ffffff;
+
+            border-bottom:
+                1px solid #e8edf3;
+
+        }
+
+
+        .header-inner {
+
+            min-height: 76px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .logo-icon {
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 12px;
+
+            background: #dff6f4;
+
+            color: #0b7f79;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+        }
+
+
+        .logo-title {
+
+            color: #102a43;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+        }
+
+
+        .logo-subtitle {
+
+            display: block;
+
+            color: #718096;
+
+            font-size: 10px;
+
+        }
+
+
+        .nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 24px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #425466;
+
+        }
+
+
+        .nav a:hover {
+
+            color: #0b7f79;
+
+        }
+
+
+        .nav-cta {
+
+            padding: 11px 16px;
+
+            background: #0b7f79;
+
+            color: #ffffff !important;
+
+            border-radius: 9px;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f0fbfa,
+                    #ffffff
+                );
+
+            padding: 90px 0;
+
+        }
+
+
+        .hero-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.15fr
+                0.85fr;
+
+            gap: 60px;
+
+            align-items: center;
+
+        }
+
+
+        .eyebrow {
+
+            display: inline-block;
+
+            margin-bottom: 16px;
+
+            color: #0b7f79;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+        }
+
+
+        .hero h1 {
+
+            max-width: 720px;
+
+            color: #102a43;
+
+            font-size:
+                clamp(
+                    44px,
+                    6vw,
+                    70px
+                );
+
+            line-height: 1.04;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .hero h1 span {
+
+            color: #0b7f79;
+
+        }
+
+
+        .hero-text {
+
+            max-width: 620px;
+
+            color: #52667a;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .hero-actions {
+
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .primary-btn {
+
+            display: inline-block;
+
+            padding: 14px 20px;
+
+            background: #0b7f79;
+
+            color: #ffffff;
+
+            border-radius: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .secondary-btn {
+
+            display: inline-block;
+
+            padding: 14px 20px;
+
+            background: #ffffff;
+
+            color: #102a43;
+
+            border:
+                1px solid #ccd7e2;
+
+            border-radius: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .hero-card {
+
+            min-height: 390px;
+
+            background: #dff6f4;
+
+            border-radius: 28px;
+
+            padding: 30px;
+
+            display: flex;
+
+            align-items: flex-end;
+
+        }
+
+
+        .hero-card-inner {
+
+            width: 100%;
+
+            background: rgba(
+                255,
+                255,
+                255,
+                0.9
+            );
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+        }
+
+
+        .hero-card-inner h3 {
+
+            color: #102a43;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .hero-card-inner p {
+
+            color: #607489;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           TRUST BAR
+        ========================= */
+
+        .trust-bar {
+
+            border-bottom:
+                1px solid #edf1f5;
+
+            background: #ffffff;
+
+        }
+
+
+        .trust-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+        }
+
+
+        .trust-item {
+
+            padding: 22px 15px;
+
+            text-align: center;
+
+            border-right:
+                1px solid #edf1f5;
+
+        }
+
+
+        .trust-item:last-child {
+
+            border-right: none;
+
+        }
+
+
+        .trust-number {
+
+            display: block;
+
+            color: #0b7f79;
+
+            font-size: 21px;
+
+            font-weight: 800;
+
+        }
+
+
+        .trust-label {
+
+            color: #718096;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+
+        .section {
+
+            padding: 90px 0;
+
+        }
+
+
+        .section-heading {
+
+            max-width: 700px;
+
+            margin:
+                0 auto 45px;
+
+            text-align: center;
+
+        }
+
+
+        .section-heading h2 {
+
+            color: #102a43;
+
+            font-size:
+                clamp(
+                    32px,
+                    4vw,
+                    46px
+                );
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .section-heading p {
+
+            color: #718096;
+
+        }
+
+
+        /* =========================
+           TREATMENTS
+        ========================= */
+
+        .treatment-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .treatment-card {
+
+            padding: 28px;
+
+            background: #ffffff;
+
+            border:
+                1px solid #e5ebf1;
+
+            border-radius: 16px;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .treatment-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color: #b9dcd9;
+
+        }
+
+
+        .treatment-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #e7f8f6;
+
+            border-radius: 12px;
+
+            font-size: 23px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .treatment-card h3 {
+
+            color: #102a43;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .treatment-card p {
+
+            color: #718096;
+
+            font-size: 14px;
+
+        }
+
+
+        .treatment-link {
+
+            display: inline-block;
+
+            margin-top: 18px;
+
+            color: #0b7f79;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+        }
+
+
+        /* =========================
+           DOCTOR
+        ========================= */
+
+        .doctor-section {
+
+            background: #f6fafb;
+
+        }
+
+
+        .doctor-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                0.8fr
+                1.2fr;
+
+            gap: 60px;
+
+            align-items: center;
+
+        }
+
+
+        .doctor-photo {
+
+            min-height: 400px;
+
+            background: #dfeff0;
+
+            border-radius: 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #0b7f79;
+
+            font-size: 60px;
+
+        }
+
+
+        .doctor-content h2 {
+
+            color: #102a43;
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .doctor-content p {
+
+            color: #63768a;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .doctor-list {
+
+            list-style: none;
+
+        }
+
+
+        .doctor-list li {
+
+            margin-bottom: 10px;
+
+            color: #425466;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           APPOINTMENT CTA
+        ========================= */
+
+        .appointment {
+
+            padding: 85px 0;
+
+            background: #102a43;
+
+            color: #ffffff;
+
+        }
+
+
+        .appointment-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                0.8fr;
+
+            gap: 50px;
+
+            align-items: center;
+
+        }
+
+
+        .appointment h2 {
+
+            font-size:
+                clamp(
+                    34px,
+                    5vw,
+                    52px
+                );
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .appointment p {
+
+            color: #bdcbd8;
+
+            max-width: 580px;
+
+        }
+
+
+        .appointment-btn {
+
+            display: inline-block;
+
+            margin-top: 22px;
+
+            padding: 15px 22px;
+
+            background: #ffffff;
+
+            color: #102a43;
+
+            border-radius: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .appointment-box {
+
+            padding: 28px;
+
+            background: #173b5c;
+
+            border-radius: 18px;
+
+        }
+
+
+        .appointment-box h3 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .appointment-box p {
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .contact-card {
+
+            padding: 25px;
+
+            border:
+                1px solid #e5ebf1;
+
+            border-radius: 15px;
+
+        }
+
+
+        .contact-card h3 {
+
+            color: #102a43;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .contact-card p {
+
+            color: #718096;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+
+            background: #081c2e;
+
+            color: #ffffff;
+
+            padding: 35px 0;
+
+        }
+
+
+        .footer-inner {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+        }
+
+
+        .footer p {
+
+            color: #9db0c0;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (
+            max-width: 850px
+        ) {
+
+            .top-contact {
+
+                display: none;
+
+            }
+
+
+            .nav {
+
+                display: none;
+
+            }
+
+
+            .hero-grid,
+
+            .doctor-grid,
+
+            .appointment-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .trust-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .treatment-grid,
+
+            .contact-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .hero {
+
+                padding: 65px 0;
+
+            }
+
+
+            .hero-card {
+
+                min-height: 300px;
+
+            }
+
+
+            .doctor-photo {
+
+                min-height: 300px;
+
+            }
+
+
+            .footer-inner {
+
+                flex-direction: column;
+
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOP BAR
+    ========================== -->
+
+    <div class="top-bar">
+
+        <div class="container top-bar-inner">
+
+            <div>
+                Jaipur's Professional Dental Care
+            </div>
+
+            <div class="top-contact">
+
+                <span>
+                    📞 +91 98765 43210
+                </span>
+
+                <span>
+                    ✉️ care@jaipursmile.example
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <div class="container header-inner">
+
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <div class="logo-icon">
+                    🦷
+                </div>
+
+                <div>
+
+                    <div class="logo-title">
+                        Jaipur Smile
+                    </div>
+
+                    <span class="logo-subtitle">
+                        DENTAL CARE
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <nav class="nav">
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#treatments">
+                    Treatments
+                </a>
+
+                <a href="#doctor">
+                    Doctor
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+                <a
+                    href="#appointment"
+                    class="nav-cta"
+                >
+                    Book Appointment
+                </a>
+
+            </nav>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+
+        <section
+            class="hero"
+            id="home"
+        >
+
+            <div class="container hero-grid">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        TRUSTED DENTAL CARE IN JAIPUR
+                    </span>
+
+
+                    <h1>
+
+                        A healthier smile
+                        starts with
+                        <span>
+                            better care.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-text">
+
+                        Professional dental treatments,
+                        modern technology and patient-first
+                        care — all in one comfortable
+                        dental clinic.
+
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a
+                            href="#appointment"
+                            class="primary-btn"
+                            data-event="appointment_cta_click"
+                        >
+                            Book Appointment
+                        </a>
+
+
+                        <a
+                            href="tel:+919876543210"
+                            class="secondary-btn"
+                            data-event="phone_click"
+                        >
+                            📞 Call Clinic
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-card">
+
+                    <div class="hero-card-inner">
+
+                        <h3>
+                            Your smile matters.
+                        </h3>
+
+                        <p>
+                            Comfortable consultation,
+                            clear treatment plans and
+                            transparent communication.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             TRUST BAR
+        ========================== -->
+
+        <section class="trust-bar">
+
+            <div class="container trust-grid">
+
+
+                <div class="trust-item">
+
+                    <span class="trust-number">
+                        10+
+                    </span>
+
+                    <span class="trust-label">
+                        Years Experience
+                    </span>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span class="trust-number">
+                        5K+
+                    </span>
+
+                    <span class="trust-label">
+                        Patients Served
+                    </span>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span class="trust-number">
+                        20+
+                    </span>
+
+                    <span class="trust-label">
+                        Treatments
+                    </span>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span class="trust-number">
+                        4.9/5
+                    </span>
+
+                    <span class="trust-label">
+                        Patient Rating
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             TREATMENTS
+        ========================== -->
+
+        <section
+            class="section"
+            id="treatments"
+        >
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        OUR SERVICES
+                    </span>
+
+
+                    <h2>
+                        Complete dental care
+                    </h2>
+
+
+                    <p>
+                        From routine checkups to
+                        advanced smile treatments,
+                        explore the services available
+                        at our clinic.
+                    </p>
+
+                </div>
+
+
+
+                <div class="treatment-grid">
+
+
+                    <article class="treatment-card">
+
+                        <div class="treatment-icon">
+                            🦷
+                        </div>
+
+                        <h3>
+                            Dental Cleaning
+                        </h3>
+
+                        <p>
+                            Professional cleaning and
+                            preventive dental care for
+                            healthier teeth and gums.
+                        </p>
+
+                        <a
+                            href="#appointment"
+                            class="treatment-link"
+                            data-treatment="dental-cleaning"
+                        >
+                            Book Consultation →
+                        </a>
+
+                    </article>
+
+
+
+                    <article class="treatment-card">
+
+                        <div class="treatment-icon">
+                            ✨
+                        </div>
+
+                        <h3>
+                            Teeth Whitening
+                        </h3>
+
+                        <p>
+                            Brighten your smile with a
+                            professional teeth-whitening
+                            consultation.
+                        </p>
+
+                        <a
+                            href="#appointment"
+                            class="treatment-link"
+                            data-treatment="teeth-whitening"
+                        >
+                            Book Consultation →
+                        </a>
+
+                    </article>
+
+
+
+                    <article class="treatment-card">
+
+                        <div class="treatment-icon">
+                            😁
+                        </div>
+
+                        <h3>
+                            Braces & Aligners
+                        </h3>
+
+                        <p>
+                            Explore orthodontic solutions
+                            designed around your smile
+                            and treatment goals.
+                        </p>
+
+                        <a
+                            href="#appointment"
+                            class="treatment-link"
+                            data-treatment="braces-aligners"
+                        >
+                            Book Consultation →
+                        </a>
+
+                    </article>
+
+
+
+                    <article class="treatment-card">
+
+                        <div class="treatment-icon">
+                            🩺
+                        </div>
+
+                        <h3>
+                            Root Canal
+                        </h3>
+
+                        <p>
+                            Professional consultation
+                            and treatment planning for
+                            damaged or infected teeth.
+                        </p>
+
+                        <a
+                            href="#appointment"
+                            class="treatment-link"
+                            data-treatment="root-canal"
+                        >
+                            Book Consultation →
+                        </a>
+
+                    </article>
+
+
+
+                    <article class="treatment-card">
+
+                        <div class="treatment-icon">
+                            👑
+                        </div>
+
+                        <h3>
+                            Dental Crowns
+                        </h3>
+
+                        <p>
+                            Restore damaged teeth with
+                            carefully planned restorative
+                            dental solutions.
+                        </p>
+
+                        <a
+                            href="#appointment"
+                            class="treatment-link"
+                            data-treatment="dental-crowns"
+                        >
+                            Book Consultation →
+                        </a>
+
+                    </article>
+
+
+
+                    <article class="treatment-card">
+
+                        <div class="treatment-icon">
+                            💎
+                        </div>
+
+                        <h3>
+                            Smile Makeover
+                        </h3>
+
+                        <p>
+                            Discuss cosmetic options
+                            designed to improve the
+                            appearance of your smile.
+                        </p>
+
+                        <a
+                            href="#appointment"
+                            class="treatment-link"
+                            data-treatment="smile-makeover"
+                        >
+                            Book Consultation →
+                        </a>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             DOCTOR
+        ========================== -->
+
+        <section
+            class="section doctor-section"
+            id="doctor"
+        >
+
+            <div class="container doctor-grid">
+
+
+                <div class="doctor-photo">
+
+                    👨‍⚕️
+
+                </div>
+
+
+                <div class="doctor-content">
+
+                    <span class="eyebrow">
+                        MEET YOUR DENTIST
+                    </span>
+
+
+                    <h2>
+                        Patient-first
+                        dental care.
+                    </h2>
+
+
+                    <p>
+
+                        Our approach focuses on clear
+                        communication, comfortable
+                        consultations and treatment
+                        plans that patients can
+                        understand.
+
+                    </p>
+
+
+                    <ul class="doctor-list">
+
+                        <li>
+                            ✓ Personalized consultation
+                        </li>
+
+                        <li>
+                            ✓ Modern dental technology
+                        </li>
+
+                        <li>
+                            ✓ Transparent treatment planning
+                        </li>
+
+                        <li>
+                            ✓ Patient-focused experience
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             APPOINTMENT
+        ========================== -->
+
+        <section
+            class="appointment"
+            id="appointment"
+        >
+
+            <div class="container appointment-grid">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        READY TO TAKE THE NEXT STEP?
+                    </span>
+
+
+                    <h2>
+                        Book your dental
+                        consultation.
+                    </h2>
+
+
+                    <p>
+
+                        Tell us what you need help with
+                        and our clinic team can contact
+                        you to discuss the next step.
+
+                    </p>
+
+
+                    <a
+                        href="contact.html"
+                        class="appointment-btn"
+                        data-event="appointment_form_start"
+                    >
+                        Request Appointment →
+                    </a>
+
+                </div>
+
+
+                <div class="appointment-box">
+
+                    <h3>
+                        Quick Contact
+                    </h3>
+
+
+                    <p>
+
+                        📞 Call:
+                        +91 98765 43210
+
+                    </p>
+
+
+                    <p>
+
+                        💬 WhatsApp:
+                        +91 98765 43210
+
+                    </p>
+
+
+                    <p>
+
+                        📍 Jaipur, Rajasthan
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section
+            class="section"
+            id="contact"
+        >
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        CONTACT
+                    </span>
+
+
+                    <h2>
+                        Visit or contact us
+                    </h2>
+
+
+                    <p>
+                        This section will later connect
+                        with our lead-generation forms
+                        and conversion tracking system.
+                    </p>
+
+                </div>
+
+
+
+                <div class="contact-grid">
+
+
+                    <article class="contact-card">
+
+                        <h3>
+                            📍 Clinic
+                        </h3>
+
+                        <p>
+                            Jaipur, Rajasthan, India
+                        </p>
+
+                    </article>
+
+
+                    <article class="contact-card">
+
+                        <h3>
+                            📞 Phone
+                        </h3>
+
+                        <p>
+                            +91 98765 43210
+                        </p>
+
+                    </article>
+
+
+                    <article class="contact-card">
+
+                        <h3>
+                            🕒 Hours
+                        </h3>
+
+                        <p>
+                            Mon – Sat<br>
+                            9:00 AM – 7:00 PM
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-inner">
+
+
+            <div>
+
+                <strong>
+                    Jaipur Smile Dental Care
+                </strong>
+
+                <p>
+                    Dental Lead Generation Testing Theme
+                </p>
+
+            </div>
+
+
+            <p>
+                Performance Marketing Lab • Demo Environment
+            </p>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         FUTURE TRACKING HOOKS
+         =========================
+
+         These data attributes are intentionally
+         added now.
+
+         Later we can use them with:
+         GTM
+         DataLayer
+         Meta Pixel
+         GA4
+         Google Ads
+
+    ========================== -->
+
+
+</body>
+
+</html>
