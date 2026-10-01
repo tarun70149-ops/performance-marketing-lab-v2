@@ -3,421 +3,325 @@
 
 <head>
 
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="Performance Marketing Lab Dashboard"
-    >
-
-    <title>Lab Dashboard | Performance Marketing Lab</title>
-
-
-    <style>
-
-        /* =========================
-           GLOBAL
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        body {
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            background: #080d19;
-
-            color: #ffffff;
-
-            line-height: 1.6;
-
-        }
-
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        .header {
-
-            width: 100%;
-
-            background: #0b1120;
-
-            border-bottom:
-                1px solid #20283a;
-
-        }
-
-
-        .header-container {
-
-            max-width: 1200px;
-
-            margin: auto;
-
-            padding: 18px 30px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-        }
-
-
-        .logo-area {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-        }
-
-
-        .logo {
-
-            width: 42px;
-
-            height: 42px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            background: #ffffff;
-
-            color: #080d19;
-
-            border-radius: 12px;
-
-            font-size: 20px;
-
-            font-weight: 800;
-
-        }
-
-
-        .brand-name {
-
-            font-size: 16px;
-
-            font-weight: 700;
-
-        }
-
-
-        .brand-subtitle {
-
-            display: block;
-
-            color: #8994aa;
-
-            font-size: 11px;
-
-        }
-
-
-        .home-link {
-
-            color: #ffffff;
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-        }
-
-
-        /* =========================
-           DASHBOARD
-        ========================= */
-
-        .dashboard {
-
-            max-width: 1200px;
-
-            margin: auto;
-
-            padding: 70px 30px 100px;
-
-        }
-
-
-        .eyebrow {
-
-            display: inline-block;
-
-            margin-bottom: 14px;
-
-            color: #8fa1ff;
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            letter-spacing: 2px;
-
-        }
-
-
-        .dashboard-title {
-
-            font-size: clamp(38px, 5vw, 58px);
-
-            line-height: 1.05;
-
-            margin-bottom: 16px;
-
-        }
-
-
-        .dashboard-description {
-
-            max-width: 720px;
-
-            color: #aab5ca;
-
-            font-size: 17px;
-
-            line-height: 1.7;
-
-        }
-
-
-        /* =========================
-           MODULE GRID
-        ========================= */
-
-        .module-grid {
-
-            margin-top: 45px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 20px;
-
-        }
-
-
-        .module-card {
-
-            position: relative;
-
-            min-height: 250px;
-
-            padding: 28px;
-
-            background: #10182a;
-
-            border:
-                1px solid #20283a;
-
-            border-radius: 18px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: space-between;
-
-            transition: 0.2s ease;
-
-        }
-
-
-        .module-card:hover {
-
-            transform:
-                translateY(-4px);
-
-            border-color:
-                #39476b;
-
-        }
-
-
-        .module-number {
-
-            color: #8fa1ff;
-
-            font-size: 13px;
-
-            font-weight: 800;
-
-        }
-
-
-        .module-icon {
-
-            font-size: 28px;
-
-            margin-top: 10px;
-
-        }
-
-
-        .module-title {
-
-            margin-top: 8px;
-
-            font-size: 24px;
-
-        }
-
-
-        .module-description {
-
-            margin-top: 8px;
-
-            color: #9eabc2;
-
-            font-size: 14px;
-
-        }
-
-
-        .module-status {
-
-            display: inline-block;
-
-            margin-top: 20px;
-
-            padding: 6px 10px;
-
-            background: #1a2540;
-
-            border-radius: 999px;
-
-            color: #b8c5e4;
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-        }
-
-
-        /* =========================
-           FUTURE SECTION
-        ========================= */
-
-        .future-section {
-
-            margin-top: 25px;
-
-            padding: 28px;
-
-            background: #10182a;
-
-            border:
-                1px solid #20283a;
-
-            border-radius: 18px;
-
-        }
-
-
-        .future-title {
-
-            font-size: 22px;
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .future-description {
-
-            color: #9eabc2;
-
-            font-size: 14px;
-
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        .footer {
-
-            border-top:
-                1px solid #20283a;
-
-            padding: 28px 30px;
-
-            text-align: center;
-
-            color: #69758c;
-
-            font-size: 13px;
-
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 750px) {
-
-            .header-container {
-
-                padding:
-                    16px 20px;
-
-            }
-
-
-            .dashboard {
-
-                padding:
-                    55px 20px 70px;
-
-            }
-
-
-            .module-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .dashboard-title {
-
-                font-size: 40px;
-
-            }
-
-        }
-
-    </style>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Lab Dashboard | Performance Marketing Lab</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1120;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      border-bottom: 1px solid #1f2937;
+      background: #0f172a;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #60a5fa;
+    }
+
+    .home-link {
+      color: #9ca3af;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .home-link:hover {
+      color: #ffffff;
+    }
+
+
+    /* MAIN */
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .eyebrow {
+      color: #60a5fa;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 42px;
+      line-height: 1.15;
+      margin-bottom: 15px;
+    }
+
+    .intro {
+      max-width: 720px;
+      color: #9ca3af;
+      font-size: 16px;
+      margin-bottom: 45px;
+    }
+
+
+    /* MODULE */
+
+    .module {
+      margin-bottom: 35px;
+    }
+
+    .module-label {
+      color: #6b7280;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .module-card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .module-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .module-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .module-title {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .module-description {
+      color: #9ca3af;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+
+    /* THEMES */
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .theme-card {
+      background: #0f172a;
+      border: 1px solid #263244;
+      border-radius: 12px;
+      padding: 20px;
+      transition: 0.2s;
+    }
+
+    .theme-card:hover {
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+    }
+
+    .theme-icon {
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .theme-card h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .theme-card p {
+      color: #6b7280;
+      font-size: 12px;
+      margin-bottom: 17px;
+    }
+
+    .open-btn {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .open-btn:hover {
+      background: #1d4ed8;
+    }
+
+    .coming-btn {
+      display: inline-block;
+      background: #1f2937;
+      color: #6b7280;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+
+    /* OTHER MODULES */
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .planned-card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 14px;
+      padding: 25px;
+    }
+
+    .planned-card .icon {
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .planned-card h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .planned-card p {
+      color: #6b7280;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .status {
+      display: inline-block;
+      background: #1f2937;
+      color: #9ca3af;
+      padding: 5px 9px;
+      border-radius: 5px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+
+    /* FUTURE SYSTEM */
+
+    .future-box {
+      margin-top: 45px;
+      padding: 28px;
+      border: 1px solid #1e3a8a;
+      background: #0f172a;
+      border-radius: 14px;
+    }
+
+    .future-box h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .future-box p {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #1f2937;
+      text-align: center;
+      padding: 25px 20px;
+      color: #6b7280;
+      font-size: 12px;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .theme-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 550px) {
+
+      main {
+        padding: 40px 15px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .theme-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        padding: 15px;
+      }
+
+    }
+
+  </style>
 
 </head>
 
@@ -425,291 +329,303 @@
 <body>
 
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+  <!-- HEADER -->
 
-    <header class="header">
+  <header>
 
-        <div class="header-container">
+    <nav class="navbar">
 
+      <a
+        href="index.html"
+        class="logo"
+      >
+        Performance <span>Marketing Lab</span>
+      </a>
+
+      <a
+        href="index.html"
+        class="home-link"
+      >
+        ← Home
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <main>
+
+    <div class="eyebrow">
+      LAB CONTROL CENTER
+    </div>
+
+    <h1>
+      Performance Marketing Lab
+    </h1>
+
+    <p class="intro">
+      Choose a practical website environment and use it
+      to build, test and learn real-world performance
+      marketing systems.
+    </p>
+
+
+    <!-- MODULE 01 -->
+
+    <section class="module">
+
+      <div class="module-label">
+        MODULE 01
+      </div>
+
+      <div class="module-card">
+
+        <div class="module-top">
+
+          <div class="module-icon">
+            🎨
+          </div>
+
+          <div class="module-title">
+            Website Themes
+          </div>
+
+        </div>
+
+        <p class="module-description">
+          Realistic website environments for lead
+          generation, e-commerce and future marketing
+          experiments.
+        </p>
+
+
+        <!-- THEME GRID -->
+
+        <div class="theme-grid">
+
+
+          <!-- DENTAL -->
+
+          <div class="theme-card">
+
+            <div class="theme-icon">
+              🦷
+            </div>
+
+            <h3>
+              Dental
+            </h3>
+
+            <p>
+              Lead generation website with
+              appointment funnel.
+            </p>
 
             <a
-                href="index.html"
-                class="logo-area"
+              href="themes/dental/"
+              class="open-btn"
             >
-
-                <div class="logo">
-                    P
-                </div>
-
-
-                <div>
-
-                    <div class="brand-name">
-                        Performance Marketing Lab
-                    </div>
-
-                    <span class="brand-subtitle">
-                        Lab Control Center
-                    </span>
-
-                </div>
-
+              Open Dental Lab →
             </a>
 
+          </div>
+
+
+          <!-- ECOMMERCE -->
+
+          <div class="theme-card">
+
+            <div class="theme-icon">
+              🛒
+            </div>
+
+            <h3>
+              E-commerce
+            </h3>
+
+            <p>
+              Product-based website for
+              e-commerce funnel testing.
+            </p>
 
             <a
-                href="index.html"
-                class="home-link"
+              href="themes/ecommerce/"
+              class="open-btn"
             >
-                ← Home
+              Open E-commerce Lab →
             </a>
+
+          </div>
+
+
+          <!-- BUSINESS -->
+
+          <div class="theme-card">
+
+            <div class="theme-icon">
+              💼
+            </div>
+
+            <h3>
+              Business
+            </h3>
+
+            <p>
+              Service business environment
+              for lead generation.
+            </p>
+
+            <span class="coming-btn">
+              Coming Soon
+            </span>
+
+          </div>
+
+
+          <!-- BLOG -->
+
+          <div class="theme-card">
+
+            <div class="theme-icon">
+              📝
+            </div>
+
+            <h3>
+              Blog
+            </h3>
+
+            <p>
+              Content website for SEO and
+              traffic experiments.
+            </p>
+
+            <span class="coming-btn">
+              Coming Soon
+            </span>
+
+          </div>
 
 
         </div>
 
-    </header>
+      </div>
 
+    </section>
 
 
-    <!-- =========================
-         DASHBOARD
-    ========================== -->
+    <!-- OTHER MODULES -->
 
-    <main class="dashboard">
+    <section class="module">
 
+      <div class="module-label">
+        FUTURE MODULES
+      </div>
 
-        <span class="eyebrow">
-            LAB CONTROL CENTER
-        </span>
+      <div class="module-grid">
 
 
-        <h1 class="dashboard-title">
-            Performance Marketing Lab
-        </h1>
+        <div class="planned-card">
 
+          <div class="icon">
+            🔌
+          </div>
 
-        <p class="dashboard-description">
+          <h3>
+            Plugins & Components
+          </h3>
 
-            Choose a module to build, test and analyze
-            real-world performance marketing systems.
+          <p>
+            Forms, WhatsApp buttons, popups,
+            newsletter systems and e-commerce
+            components.
+          </p>
 
-            This dashboard will become the central
-            control panel for our complete testing
-            environment.
+          <span class="status">
+            PLANNED
+          </span>
 
-        </p>
+        </div>
 
 
+        <div class="planned-card">
 
-        <!-- =========================
-             MODULE GRID
-        ========================== -->
+          <div class="icon">
+            📊
+          </div>
 
-        <section class="module-grid">
+          <h3>
+            Tracking Lab
+          </h3>
 
+          <p>
+            Meta Pixel, Google Ads, GTM, GA4,
+            DataLayer, UTM and event tracking.
+          </p>
 
-            <!-- THEME MODULE -->
+          <span class="status">
+            USER SETUP
+          </span>
 
-            <article class="module-card">
+        </div>
 
-                <div>
 
-                    <span class="module-number">
-                        MODULE 01
-                    </span>
+        <div class="planned-card">
 
+          <div class="icon">
+            🧪
+          </div>
 
-                    <div class="module-icon">
-                        🎨
-                    </div>
+          <h3>
+            Conversion Testing
+          </h3>
 
+          <p>
+            Test Lead, ViewContent, AddToCart,
+            Checkout, Purchase and custom events.
+          </p>
 
-                    <h2 class="module-title">
-                        Website Themes
-                    </h2>
+          <span class="status">
+            PLANNED
+          </span>
 
+        </div>
 
-                    <p class="module-description">
 
-                        Dental, E-commerce, Business,
-                        Blog and other practical
-                        website environments.
+      </div>
 
-                    </p>
+    </section>
 
-                </div>
 
+    <!-- FUTURE SYSTEM -->
 
-                <span class="module-status">
-                    BUILDING NEXT
-                </span>
+    <section class="future-box">
 
-            </article>
+      <h2>
+        🏗️ Complete Marketing Testing System
+      </h2>
 
+      <p>
+        Themes → Pages → Forms → Funnel →
+        Tracking Setup → DataLayer → GTM → GA4 →
+        Meta Pixel → Google Ads → Conversion API →
+        Event Debugging → Analytics.
+      </p>
 
+    </section>
 
-            <!-- PLUGIN MODULE -->
+  </main>
 
-            <article class="module-card">
 
-                <div>
+  <!-- FOOTER -->
 
-                    <span class="module-number">
-                        MODULE 02
-                    </span>
+  <footer>
 
+    Performance Marketing Lab © 2026
 
-                    <div class="module-icon">
-                        🔌
-                    </div>
-
-
-                    <h2 class="module-title">
-                        Plugins & Components
-                    </h2>
-
-
-                    <p class="module-description">
-
-                        Forms, WhatsApp buttons,
-                        popups, newsletter systems
-                        and ecommerce components.
-
-                    </p>
-
-                </div>
-
-
-                <span class="module-status">
-                    PLANNED
-                </span>
-
-            </article>
-
-
-
-            <!-- TRACKING MODULE -->
-
-            <article class="module-card">
-
-                <div>
-
-                    <span class="module-number">
-                        MODULE 03
-                    </span>
-
-
-                    <div class="module-icon">
-                        📊
-                    </div>
-
-
-                    <h2 class="module-title">
-                        Tracking Lab
-                    </h2>
-
-
-                    <p class="module-description">
-
-                        Meta Pixel, Google Ads,
-                        GTM, GA4, DataLayer,
-                        UTM and event tracking.
-
-                    </p>
-
-                </div>
-
-
-                <span class="module-status">
-                    PLANNED
-                </span>
-
-            </article>
-
-
-
-            <!-- TESTING MODULE -->
-
-            <article class="module-card">
-
-                <div>
-
-                    <span class="module-number">
-                        MODULE 04
-                    </span>
-
-
-                    <div class="module-icon">
-                        🧪
-                    </div>
-
-
-                    <h2 class="module-title">
-                        Conversion Testing
-                    </h2>
-
-
-                    <p class="module-description">
-
-                        Test Lead, ViewContent,
-                        AddToCart, Checkout,
-                        Purchase and custom events.
-
-                    </p>
-
-                </div>
-
-
-                <span class="module-status">
-                    PLANNED
-                </span>
-
-            </article>
-
-
-        </section>
-
-
-
-        <!-- =========================
-             FUTURE SYSTEM
-        ========================== -->
-
-        <section class="future-section">
-
-            <h2 class="future-title">
-                🏗️ Future: Complete Marketing Testing System
-            </h2>
-
-
-            <p class="future-description">
-
-                Themes → Pages → Forms → Funnel →
-                DataLayer → GTM → GA4 → Meta Pixel →
-                Google Ads → Conversion API →
-                Event Debugger → Analytics.
-
-            </p>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer class="footer">
-
-        Performance Marketing Lab
-        © 2026
-
-    </footer>
+  </footer>
 
 
 </body>
