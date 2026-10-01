@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart | DODS Commerce</title>
+  <meta name="description" content="DODS Commerce demo shopping cart built for performance marketing and conversion testing practice.">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8fafc;
+      color: #111827;
+      line-height: 1.5;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button, input { font-family: inherit; }
+
+    .top-bar {
+      background: #111827;
+      color: #fff;
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 17px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+
+    .logo span { color: #2563eb; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 800;
+      color: #374151;
+    }
+
+    .nav-link:hover { color: #2563eb; }
+
+    .cart-pill {
+      background: #eff6ff;
+      color: #2563eb;
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 42px 20px 70px;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 18px;
+    }
+
+    .breadcrumb a {
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    .page-title {
+      font-size: 34px;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .page-subtitle {
+      color: #6b7280;
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .cart-panel,
+    .summary-panel {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+    }
+
+    .cart-panel { overflow: hidden; }
+
+    .panel-header {
+      padding: 20px 22px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .panel-header h2 {
+      font-size: 18px;
+    }
+
+    .item-count {
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 105px 1fr auto;
+      gap: 18px;
+      padding: 22px;
+      border-bottom: 1px solid #e5e7eb;
+      align-items: center;
+    }
+
+    .product-thumb {
+      width: 105px;
+      height: 105px;
+      border-radius: 10px;
+      background: #f3f4f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+    }
+
+    .item-category {
+      color: #6b7280;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .item-name {
+      font-size: 17px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .item-meta {
+      color: #6b7280;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .item-price {
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    .quantity-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 13px;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      border: 1px solid #d1d5db;
+      border-radius: 7px;
+      overflow: hidden;
+    }
+
+    .quantity-control button {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: #fff;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .quantity-control button:hover { background: #f3f4f6; }
+
+    .quantity-value {
+      min-width: 32px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .remove-btn {
+      border: none;
+      background: transparent;
+      color: #dc2626;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .remove-btn:hover { text-decoration: underline; }
+
+    .item-total {
+      font-size: 17px;
+      font-weight: 900;
+      white-space: nowrap;
+      align-self: start;
+    }
+
+    .coupon-box {
+      padding: 20px 22px;
+      background: #fafafa;
+    }
+
+    .coupon-box label {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .coupon-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .coupon-row input {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid #d1d5db;
+      border-radius: 7px;
+      padding: 11px 12px;
+      outline: none;
+    }
+
+    .coupon-row input:focus { border-color: #2563eb; }
+
+    .coupon-btn {
+      border: none;
+      background: #111827;
+      color: #fff;
+      border-radius: 7px;
+      padding: 0 17px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .coupon-message {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #15803d;
+      min-height: 18px;
+    }
+
+    .summary-panel {
+      padding: 22px;
+      position: sticky;
+      top: 105px;
+    }
+
+    .summary-panel h2 {
+      font-size: 19px;
+      margin-bottom: 20px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 13px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .summary-row strong { color: #111827; }
+
+    .discount-row { color: #15803d; }
+    .discount-row strong { color: #15803d; }
+
+    .summary-divider {
+      border: 0;
+      border-top: 1px solid #e5e7eb;
+      margin: 18px 0;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 18px;
+    }
+
+    .total-row span:first-child {
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .grand-total {
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      border: none;
+      background: #2563eb;
+      color: #fff;
+      padding: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .checkout-btn:hover { background: #1d4ed8; }
+
+    .continue-btn {
+      display: block;
+      text-align: center;
+      margin-top: 13px;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #374151;
+    }
+
+    .continue-btn:hover { border-color: #2563eb; color: #2563eb; }
+
+    .benefits {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 13px;
+      align-items: flex-start;
+    }
+
+    .benefit-icon { font-size: 18px; }
+
+    .benefit strong {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+
+    .benefit span {
+      color: #6b7280;
+      font-size: 11px;
+    }
+
+    .empty-cart {
+      display: none;
+      text-align: center;
+      padding: 65px 25px;
+    }
+
+    .empty-cart-icon { font-size: 55px; margin-bottom: 15px; }
+
+    .empty-cart h2 { font-size: 22px; margin-bottom: 8px; }
+
+    .empty-cart p {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .shop-btn {
+      display: inline-block;
+      background: #111827;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    footer {
+      background: #111827;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      color: #9ca3af;
+      font-size: 12px;
+    }
+
+    @media (max-width: 850px) {
+      .cart-layout { grid-template-columns: 1fr; }
+      .summary-panel { position: static; }
+    }
+
+    @media (max-width: 600px) {
+      .navbar { padding: 14px; }
+      .logo { font-size: 21px; }
+      .nav-actions { gap: 10px; }
+      .nav-link { font-size: 12px; }
+      .page { padding: 30px 14px 55px; }
+      .page-title { font-size: 29px; }
+      .cart-item { grid-template-columns: 78px 1fr; gap: 13px; padding: 17px; }
+      .product-thumb { width: 78px; height: 78px; font-size: 40px; }
+      .item-total { grid-column: 2; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    🚚 Free Shipping on Orders Above ₹999 &nbsp; | &nbsp; Easy 7-Day Returns
+  </div>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">DODS<span>Commerce</span></a>
+
+      <div class="nav-actions">
+        <a href="index.html" class="nav-link" data-event="continue_shopping">← Continue Shopping</a>
+        <a href="cart.html" class="cart-pill" data-event="cart_view">🛒 Cart</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &nbsp;›&nbsp; Cart
+    </div>
+
+    <h1 class="page-title">Your Shopping Cart</h1>
+    <p class="page-subtitle">Review your items before moving to checkout.</p>
+
+    <div class="cart-layout" id="cart-layout">
+
+      <section class="cart-panel">
+        <div class="panel-header">
+          <h2>Cart Items</h2>
+          <span class="item-count" id="item-count">1 item</span>
+        </div>
+
+        <div class="cart-item" id="cart-item" data-product-id="DODS001" data-product-name="Wireless Headphones" data-product-category="Electronics" data-product-price="2499">
+          <div class="product-thumb">🎧</div>
+
+          <div>
+            <div class="item-category">Electronics</div>
+            <div class="item-name">Wireless Headphones</div>
+            <div class="item-meta">Premium wireless audio · Black</div>
+            <div class="item-price">₹2,499</div>
+
+            <div class="quantity-row">
+              <div class="quantity-control" data-event="quantity_change">
+                <button type="button" id="minus-btn" aria-label="Decrease quantity">−</button>
+                <span class="quantity-value" id="quantity">1</span>
+                <button type="button" id="plus-btn" aria-label="Increase quantity">+</button>
+              </div>
+
+              <button type="button" class="remove-btn" id="remove-btn" data-event="remove_from_cart">
+                Remove
+              </button>
+            </div>
+          </div>
+
+          <div class="item-total" id="item-total">₹2,499</div>
+        </div>
+
+        <div class="coupon-box">
+          <label for="coupon">Have a coupon?</label>
+          <div class="coupon-row">
+            <input type="text" id="coupon" placeholder="Enter coupon code" autocomplete="off">
+            <button type="button" class="coupon-btn" id="coupon-btn" data-event="apply_coupon">Apply</button>
+          </div>
+          <div class="coupon-message" id="coupon-message"></div>
+        </div>
+
+        <div class="empty-cart" id="empty-cart">
+          <div class="empty-cart-icon">🛒</div>
+          <h2>Your cart is empty</h2>
+          <p>Looks like you haven't added anything yet.</p>
+          <a href="index.html" class="shop-btn" data-event="empty_cart_shop">Start Shopping →</a>
+        </div>
+      </section>
+
+      <aside class="summary-panel" id="summary-panel">
+        <h2>Order Summary</h2>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="subtotal">₹2,499</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Shipping</span>
+          <strong id="shipping">FREE</strong>
+        </div>
+
+        <div class="summary-row discount-row" id="discount-row" style="display:none;">
+          <span>Discount</span>
+          <strong id="discount">-₹0</strong>
+        </div>
+
+        <hr class="summary-divider">
+
+        <div class="total-row">
+          <span>Total</span>
+          <span class="grand-total" id="grand-total">₹2,499</span>
+        </div>
+
+        <button type="button" class="checkout-btn" id="checkout-btn" data-event="begin_checkout">
+          Proceed to Checkout →
+        </button>
+
+        <a href="index.html" class="continue-btn" data-event="continue_shopping">
+          Continue Shopping
+        </a>
+
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">🔒</div>
+            <div>
+              <strong>Secure Checkout</strong>
+              <span>Your payment information stays protected.</span>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">🚚</div>
+            <div>
+              <strong>Fast Delivery</strong>
+              <span>Free shipping on orders above ₹999.</span>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">↩️</div>
+            <div>
+              <strong>Easy Returns</strong>
+              <span>7-day return policy on eligible products.</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 DODS Commerce · Performance Marketing Lab</p>
+  </footer>
+
+  <!-- DEMO INTERACTION ONLY -->
+  <script>
+    /*
+      IMPORTANT:
+      This page intentionally contains NO:
+      - Meta Pixel
+      - Google Tag Manager
+      - GA4
+      - Google Ads Conversion Tag
+      - Meta CAPI
+      - UTM processing
+
+      Those systems will be configured by the learner.
+      data-* attributes are tracking-ready hooks only.
+    */
+
+    const UNIT_PRICE = 2499;
+    let quantity = 1;
+    let discount = 0;
+    let removed = false;
+
+    const quantityEl = document.getElementById("quantity");
+    const itemTotalEl = document.getElementById("item-total");
+    const subtotalEl = document.getElementById("subtotal");
+    const grandTotalEl = document.getElementById("grand-total");
+    const itemCountEl = document.getElementById("item-count");
+    const cartItemEl = document.getElementById("cart-item");
+    const summaryPanel = document.getElementById("summary-panel");
+    const emptyCartEl = document.getElementById("empty-cart");
+    const discountRowEl = document.getElementById("discount-row");
+    const discountEl = document.getElementById("discount");
+
+    function formatPrice(value) {
+      return "₹" + value.toLocaleString("en-IN");
+    }
+
+    function updateCart() {
+      if (removed) return;
+
+      const subtotal = UNIT_PRICE * quantity;
+      const total = Math.max(0, subtotal - discount);
+
+      quantityEl.textContent = quantity;
+      itemTotalEl.textContent = formatPrice(subtotal);
+      subtotalEl.textContent = formatPrice(subtotal);
+      grandTotalEl.textContent = formatPrice(total);
+      itemCountEl.textContent = quantity + (quantity === 1 ? " item" : " items");
+
+      if (discount > 0) {
+        discountRowEl.style.display = "flex";
+        discountEl.textContent = "-" + formatPrice(discount);
+      }
+    }
+
+    document.getElementById("minus-btn").addEventListener("click", function () {
+      if (quantity > 1) {
+        quantity--;
+        updateCart();
+      }
+    });
+
+    document.getElementById("plus-btn").addEventListener("click", function () {
+      if (quantity < 10) {
+        quantity++;
+        updateCart();
+      }
+    });
+
+    document.getElementById("remove-btn").addEventListener("click", function () {
+      removed = true;
+      cartItemEl.style.display = "none";
+      summaryPanel.style.display = "none";
+      emptyCartEl.style.display = "block";
+      itemCountEl.textContent = "0 items";
+    });
+
+    document.getElementById("coupon-btn").addEventListener("click", function () {
+      const coupon = document.getElementById("coupon").value.trim().toUpperCase();
+      const message = document.getElementById("coupon-message");
+
+      if (coupon === "WELCOME500") {
+        discount = 500;
+        message.textContent = "✓ Coupon applied. You saved ₹500.";
+        updateCart();
+      } else if (coupon === "") {
+        discount = 0;
+        message.textContent = "Enter a coupon code to apply it.";
+        discountRowEl.style.display = "none";
+        updateCart();
+      } else {
+        discount = 0;
+        message.textContent = "Demo coupon not recognized. Try WELCOME500.";
+        discountRowEl.style.display = "none";
+        updateCart();
+      }
+    });
+
+    document.getElementById("checkout-btn").addEventListener("click", function () {
+      if (removed) return;
+      window.location.href = "checkout.html";
+    });
+
+    updateCart();
+  </script>
+
+</body>
+</html>
