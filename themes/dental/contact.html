@@ -779,34 +779,18 @@
 
   <script>
 
-    const appointmentForm =
-      document.getElementById("appointment-form");
+  const appointmentForm =
+    document.getElementById("appointment-form");
 
-    appointmentForm.addEventListener("submit", function(event) {
+  appointmentForm.addEventListener("submit", function(event) {
 
-      event.preventDefault();
+    event.preventDefault();
 
-      /*
-        Tracking-ready form.
+    window.location.href = "thank-you.html";
 
-        Future events:
+  });
 
-        form_view
-        form_start
-        form_submit
-        lead
-
-        Actual tracking will be implemented later
-        using DataLayer + GTM + Meta Pixel + GA4.
-      */
-
-      alert(
-        "Demo appointment submitted successfully. Thank you!"
-      );
-
-    });
-
-  </script>
+</script>
 
 </body>
 </html>
