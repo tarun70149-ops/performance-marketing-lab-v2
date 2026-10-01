@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Thank You | Jaipur Smile Dental Care</title>
+
+  <meta
+    name="description"
+    content="Thank you for requesting an appointment with Jaipur Smile Dental Care."
+  >
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f9fc;
+      color: #1f2937;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .navbar {
+      max-width: 1180px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f766e;
+    }
+
+    .logo span {
+      color: #111827;
+    }
+
+    .phone {
+      color: #0f766e;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* MAIN */
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .thank-you-card {
+      width: 100%;
+      max-width: 680px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 55px 45px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 15px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    /* SUCCESS ICON */
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 25px;
+      border-radius: 50%;
+      background: #ccfbf1;
+      color: #0f766e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 800;
+    }
+
+    .thank-you-card h1 {
+      font-size: 40px;
+      color: #111827;
+      margin-bottom: 15px;
+    }
+
+    .thank-you-card .main-text {
+      font-size: 18px;
+      color: #4b5563;
+      max-width: 540px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+    }
+
+    /* NEXT STEPS */
+
+    .next-steps {
+      background: #f0fdfa;
+      border: 1px solid #ccfbf1;
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .next-steps h3 {
+      color: #115e59;
+      margin-bottom: 12px;
+      font-size: 17px;
+    }
+
+    .next-steps p {
+      color: #4b5563;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .next-steps p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* BUTTONS */
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .primary-btn {
+      background: #0f766e;
+      color: #ffffff;
+    }
+
+    .primary-btn:hover {
+      background: #115e59;
+      transform: translateY(-1px);
+    }
+
+    .secondary-btn {
+      background: #ffffff;
+      color: #0f766e;
+      border: 1px solid #0f766e;
+    }
+
+    .secondary-btn:hover {
+      background: #f0fdfa;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111827;
+      color: #ffffff;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      .navbar {
+        justify-content: center;
+      }
+
+      .phone {
+        display: none;
+      }
+
+      .thank-you-card {
+        padding: 40px 22px;
+      }
+
+      .thank-you-card h1 {
+        font-size: 31px;
+      }
+
+      .thank-you-card .main-text {
+        font-size: 16px;
+      }
+
+      .success-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 34px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header>
+
+    <nav class="navbar">
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+        Jaipur <span>Smile Dental Care</span>
+      </a>
+
+      <a
+        href="tel:+919876543210"
+        class="phone"
+        data-event="phone_click"
+      >
+        📞 +91 98765 43210
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- THANK YOU CONTENT -->
+
+  <main>
+
+    <section
+      class="thank-you-card"
+      data-page="thank-you"
+      data-event="lead_confirmation"
+    >
+
+      <div class="success-icon">
+        ✓
+      </div>
+
+
+      <h1>
+        Thank You!
+      </h1>
+
+
+      <p class="main-text">
+        Your appointment request has been received.
+        Our dental care team will contact you shortly
+        to confirm your appointment.
+      </p>
+
+
+      <!-- NEXT STEPS -->
+
+      <div class="next-steps">
+
+        <h3>
+          What happens next?
+        </h3>
+
+        <p>
+          ✓ Our team will review your appointment request.
+        </p>
+
+        <p>
+          ✓ We will contact you on your provided phone number.
+        </p>
+
+        <p>
+          ✓ Your appointment date and time will be confirmed.
+        </p>
+
+      </div>
+
+
+      <!-- BUTTONS -->
+
+      <div class="buttons">
+
+        <a
+          href="index.html"
+          class="btn primary-btn"
+          data-event="back_home_click"
+        >
+          ← Back to Home
+        </a>
+
+
+        <a
+          href="tel:+919876543210"
+          class="btn secondary-btn"
+          data-event="phone_click"
+        >
+          📞 Call Clinic
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 Jaipur Smile Dental Care.
+      Demo Performance Marketing Lab.
+    </p>
+
+  </footer>
+
+
+  <!-- FUTURE TRACKING AREA -->
+
+  <script>
+
+    /*
+      FUTURE TRACKING EVENTS:
+
+      PageView
+      lead_confirmation
+      Lead
+      Google Ads Conversion
+      GA4 Conversion
+
+      Tracking will be implemented later through:
+
+      DataLayer
+      GTM
+      Meta Pixel
+      Google Ads
+      GA4
+
+      IMPORTANT:
+      No actual tracking code is being added yet.
+    */
+
+    console.log(
+      "Thank You Page Loaded — Tracking Ready"
+    );
+
+  </script>
+
+</body>
+</html>
