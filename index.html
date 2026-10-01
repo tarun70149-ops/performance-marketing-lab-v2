@@ -1,460 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-    <meta
-        name="description"
-        content="Performance Marketing Lab - A practical environment for website, funnel and conversion tracking testing."
-    >
+  <title>Performance Marketing Lab</title>
 
-    <title>Performance Marketing Lab</title>
+  <meta
+    name="description"
+    content="A practical environment for testing websites, funnels, conversion tracking and performance marketing."
+  >
+
+  <style>
 
-    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* =========================
-           GLOBAL
-        ========================= */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080c1a;
+      color: #ffffff;
+      line-height: 1.6;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080d19;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+    /* =========================
+       HEADER
+    ========================= */
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    header {
+      border-bottom: 1px solid #1d2638;
+      background: #0b1020;
+    }
 
+    .navbar {
+      max-width: 1080px;
+      margin: auto;
+      padding: 18px 20px;
 
-        /* =========================
-           HEADER
-        ========================= */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .header {
-            width: 100%;
-            border-bottom: 1px solid #20283a;
-            background: #0b1120;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-        .header-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 30px;
+    .brand-icon {
+      width: 40px;
+      height: 40px;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+      background: #ffffff;
+      color: #111827;
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+      border-radius: 11px;
 
-        .logo {
-            width: 42px;
-            height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+      font-weight: 900;
+      font-size: 20px;
+    }
 
-            background: #ffffff;
-            color: #080d19;
+    .brand-name {
+      font-size: 16px;
+      font-weight: 800;
+    }
 
-            border-radius: 12px;
+    .brand-subtitle {
+      color: #8b95a7;
+      font-size: 11px;
+      margin-top: 1px;
+    }
 
-            font-size: 20px;
-            font-weight: 800;
-        }
+    .dashboard-link {
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
 
-        .brand-name {
-            font-size: 16px;
-            font-weight: 700;
-        }
+      padding: 9px 14px;
+      border-radius: 7px;
 
-        .brand-subtitle {
-            display: block;
+      transition: 0.2s;
+    }
 
-            margin-top: 2px;
+    .dashboard-link:hover {
+      background: #182238;
+    }
 
-            color: #8994aa;
 
-            font-size: 11px;
-        }
+    /* =========================
+       HERO
+    ========================= */
 
-        .header-link {
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 700;
-        }
+    main {
+      max-width: 1080px;
+      margin: auto;
+      padding: 105px 20px 80px;
+    }
 
+    .eyebrow {
+      color: #8ea2ff;
 
-        /* =========================
-           HERO
-        ========================= */
+      font-size: 12px;
+      font-weight: 900;
 
-        .hero {
-            max-width: 1200px;
-            margin: auto;
+      letter-spacing: 2px;
 
-            padding: 110px 30px 90px;
-        }
+      margin-bottom: 18px;
+    }
 
-        .eyebrow {
-            display: inline-block;
+    h1 {
+      max-width: 700px;
 
-            margin-bottom: 18px;
+      font-size: 78px;
+      line-height: 0.98;
 
-            color: #8fa1ff;
+      letter-spacing: -4px;
 
-            font-size: 12px;
-            font-weight: 800;
+      margin-bottom: 30px;
+    }
 
-            letter-spacing: 2px;
-        }
+    h1 span {
+      color: #8297ff;
+    }
 
-        .hero-title {
-            max-width: 850px;
+    .hero-description {
+      max-width: 730px;
 
-            font-size: clamp(48px, 7vw, 82px);
+      color: #aeb7c8;
 
-            line-height: 1;
+      font-size: 17px;
+      line-height: 1.9;
 
-            margin-bottom: 28px;
-        }
+      margin-bottom: 32px;
+    }
 
-        .hero-title span {
-            color: #8fa1ff;
-        }
 
-        .hero-description {
-            max-width: 720px;
+    /* =========================
+       MAIN CTA
+    ========================= */
 
-            color: #aab5ca;
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
 
-            font-size: 19px;
+      margin-bottom: 65px;
+    }
 
-            line-height: 1.8;
+    .primary-btn {
+      display: inline-flex;
 
-            margin-bottom: 32px;
-        }
+      align-items: center;
+      justify-content: center;
 
-        .primary-button {
-            display: inline-block;
+      background: #ffffff;
+      color: #111827;
 
-            padding: 14px 22px;
+      padding: 14px 21px;
 
-            background: #ffffff;
+      border-radius: 9px;
 
-            color: #080d19;
+      font-size: 14px;
+      font-weight: 900;
 
-            border-radius: 12px;
+      transition: 0.2s;
+    }
 
-            font-size: 15px;
+    .primary-btn:hover {
+      transform: translateY(-2px);
+      background: #e9edff;
+    }
 
-            font-weight: 800;
+    .secondary-btn {
+      display: inline-flex;
 
-            transition: 0.2s ease;
-        }
+      align-items: center;
+      justify-content: center;
 
-        .primary-button:hover {
-            transform: translateY(-2px);
-        }
+      border: 1px solid #33405a;
 
+      color: #d5dbea;
 
-        /* =========================
-           FEATURE CARDS
-        ========================= */
+      padding: 14px 21px;
 
-        .features {
-            max-width: 1200px;
-            margin: auto;
+      border-radius: 9px;
 
-            padding: 0 30px 100px;
+      font-size: 14px;
+      font-weight: 800;
 
-            display: grid;
+      transition: 0.2s;
+    }
 
-            grid-template-columns: repeat(3, 1fr);
+    .secondary-btn:hover {
+      border-color: #7184ff;
+      color: #ffffff;
+    }
 
-            gap: 20px;
-        }
 
-        .feature-card {
-            padding: 28px;
+    /* =========================
+       QUICK ACCESS
+    ========================= */
 
-            background: #10182a;
+    .quick-title {
+      color: #717c91;
 
-            border: 1px solid #20283a;
+      font-size: 11px;
+      font-weight: 900;
 
-            border-radius: 18px;
-        }
+      letter-spacing: 1.5px;
 
-        .feature-number {
-            display: block;
+      margin-bottom: 15px;
+    }
 
-            margin-bottom: 12px;
+    .quick-grid {
+      display: grid;
 
-            color: #8fa1ff;
+      grid-template-columns: repeat(2, 1fr);
 
-            font-size: 13px;
+      gap: 15px;
 
-            font-weight: 800;
-        }
+      margin-bottom: 70px;
+    }
 
-        .feature-card h3 {
-            margin-bottom: 8px;
+    .quick-card {
+      background: #101727;
 
-            font-size: 20px;
-        }
+      border: 1px solid #202c42;
 
-        .feature-card p {
-            color: #9eabc2;
+      border-radius: 14px;
 
-            font-size: 15px;
-        }
+      padding: 23px;
 
+      transition: 0.2s;
+    }
 
-        /* =========================
-           FOOTER
-        ========================= */
+    .quick-card:hover {
+      transform: translateY(-3px);
+      border-color: #6177ff;
+      background: #121b2e;
+    }
 
-        .footer {
-            border-top: 1px solid #20283a;
+    .quick-icon {
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
 
-            padding: 28px 30px;
+    .quick-card h3 {
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
 
-            text-align: center;
+    .quick-card p {
+      color: #7f8a9f;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
 
-            color: #69758c;
+    .quick-link {
+      color: #8ea2ff;
+      font-size: 12px;
+      font-weight: 900;
+    }
 
-            font-size: 13px;
-        }
 
+    /* =========================
+       FEATURE CARDS
+    ========================= */
 
-        /* =========================
-           MOBILE
-        ========================= */
+    .feature-grid {
+      display: grid;
 
-        @media (max-width: 750px) {
+      grid-template-columns: repeat(3, 1fr);
 
-            .header-container {
-                padding: 16px 20px;
-            }
+      gap: 18px;
+    }
 
-            .hero {
-                padding: 75px 20px 70px;
-            }
+    .feature-card {
+      background: #101727;
 
-            .hero-title {
-                font-size: 48px;
-            }
+      border: 1px solid #202c42;
 
-            .hero-description {
-                font-size: 17px;
-            }
+      border-radius: 14px;
 
-            .features {
-                grid-template-columns: 1fr;
+      padding: 25px;
+    }
 
-                padding: 0 20px 70px;
-            }
+    .feature-number {
+      color: #8799ff;
 
-        }
+      font-size: 12px;
+      font-weight: 900;
 
-    </style>
+      margin-bottom: 20px;
+    }
+
+    .feature-card h2 {
+      font-size: 18px;
+      margin-bottom: 9px;
+    }
+
+    .feature-card p {
+      color: #8994a8;
+
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid #1d2638;
+
+      text-align: center;
+
+      padding: 28px 20px;
+
+      color: #626d81;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      main {
+        padding-top: 70px;
+      }
+
+      h1 {
+        font-size: 58px;
+        letter-spacing: -3px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .navbar {
+        padding: 14px 15px;
+      }
+
+      .brand-name {
+        font-size: 14px;
+      }
+
+      .dashboard-link {
+        font-size: 12px;
+      }
+
+      main {
+        padding: 55px 15px 60px;
+      }
+
+      h1 {
+        font-size: 46px;
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-row {
+        flex-direction: column;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 
 <body>
 
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-    <header class="header">
+  <header>
 
-        <div class="header-container">
+    <nav class="navbar">
 
-            <a href="index.html" class="logo-area">
+      <a
+        href="index.html"
+        class="brand"
+      >
 
-                <div class="logo">
-                    P
-                </div>
+        <div class="brand-icon">
+          P
+        </div>
 
-                <div>
+        <div>
 
-                    <div class="brand-name">
-                        Performance Marketing Lab
-                    </div>
+          <div class="brand-name">
+            Performance Marketing Lab
+          </div>
 
-                    <span class="brand-subtitle">
-                        Conversion Testing Environment
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <!-- Dashboard link will become active
-                 after dashboard.html is created -->
-
-            <span class="header-link">
-                Lab Foundation
-            </span>
+          <div class="brand-subtitle">
+            Conversion Testing Environment
+          </div>
 
         </div>
 
-    </header>
+      </a>
+
+
+      <a
+        href="dashboard.html"
+        class="dashboard-link"
+      >
+        Open Lab →
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
+  <main>
+
+
+    <div class="eyebrow">
+      PERFORMANCE MARKETING • LAB
+    </div>
+
+
+    <h1>
+      Build. Track.<br>
+      <span>Test.</span>
+    </h1>
+
+
+    <p class="hero-description">
+
+      A practical environment for testing websites,
+      marketing funnels, conversion tracking, analytics,
+      pixels and performance marketing campaigns —
+      without buying separate hosting.
+
+    </p>
+
+
+    <!-- MAIN CTA -->
+
+    <div class="cta-row">
+
+      <a
+        href="dashboard.html"
+        class="primary-btn"
+      >
+        🚀 Open Performance Marketing Lab →
+      </a>
+
+
+      <a
+        href="#themes"
+        class="secondary-btn"
+      >
+        Explore Themes ↓
+      </a>
+
+    </div>
 
 
 
     <!-- =========================
-         HERO SECTION
-    ========================== -->
+         QUICK ACCESS
+    ========================= -->
 
-    <main>
-
-        <section class="hero">
-
-            <span class="eyebrow">
-                PERFORMANCE MARKETING • LAB
-            </span>
-
-
-            <h1 class="hero-title">
-
-                Build.
-                Track.
-                <br>
-
-                <span>Test.</span>
-
-            </h1>
+    <div
+      class="quick-title"
+      id="themes"
+    >
+      QUICK ACCESS
+    </div>
 
 
-            <p class="hero-description">
-
-                A practical environment for testing websites,
-                marketing funnels, conversion tracking,
-                analytics, pixels and performance marketing
-                campaigns — without buying separate hosting.
-
-            </p>
+    <div class="quick-grid">
 
 
-            <!-- Dashboard will be connected later -->
+      <!-- DENTAL -->
 
-            <span class="primary-button">
-                Testing Lab — Coming Next
-            </span>
+      <a
+        href="themes/dental/"
+        class="quick-card"
+      >
 
-        </section>
+        <div class="quick-icon">
+          🦷
+        </div>
 
+        <h3>
+          Dental Lead Generation
+        </h3>
 
+        <p>
+          Appointment funnel, lead form and
+          thank-you page for lead generation testing.
+        </p>
 
-        <!-- =========================
-             FEATURE SECTION
-        ========================== -->
+        <div class="quick-link">
+          Open Dental Lab →
+        </div>
 
-        <section class="features">
-
-
-            <article class="feature-card">
-
-                <span class="feature-number">
-                    01
-                </span>
-
-                <h3>
-                    Multiple Website Themes
-                </h3>
-
-                <p>
-                    Dental, E-commerce, Business,
-                    Blog and other practical website
-                    environments will live inside one lab.
-                </p>
-
-            </article>
+      </a>
 
 
 
-            <article class="feature-card">
+      <!-- ECOMMERCE -->
 
-                <span class="feature-number">
-                    02
-                </span>
+      <a
+        href="themes/ecommerce/"
+        class="quick-card"
+      >
 
-                <h3>
-                    Conversion Testing
-                </h3>
+        <div class="quick-icon">
+          🛒
+        </div>
 
-                <p>
-                    Build lead funnels, product funnels,
-                    forms, checkout flows and thank-you
-                    pages for real-world testing.
-                </p>
+        <h3>
+          E-commerce
+        </h3>
 
-            </article>
+        <p>
+          Product-based environment for
+          shopping funnel and conversion testing.
+        </p>
 
+        <div class="quick-link">
+          Open E-commerce Lab →
+        </div>
 
-
-            <article class="feature-card">
-
-                <span class="feature-number">
-                    03
-                </span>
-
-                <h3>
-                    Tracking Laboratory
-                </h3>
-
-                <p>
-                    Meta Pixel, Google Ads,
-                    GTM, GA4, DataLayer,
-                    UTM and event debugging will
-                    be added step by step.
-                </p>
-
-            </article>
+      </a>
 
 
-        </section>
-
-    </main>
+    </div>
 
 
 
     <!-- =========================
-         FOOTER
-    ========================== -->
+         FEATURES
+    ========================= -->
 
-    <footer class="footer">
+    <div class="feature-grid">
 
-        Performance Marketing Lab
-        © 2026
 
-    </footer>
+      <div class="feature-card">
+
+        <div class="feature-number">
+          01
+        </div>
+
+        <h2>
+          Multiple Website Themes
+        </h2>
+
+        <p>
+          Dental, E-commerce, Business, Blog
+          and other practical website environments
+          can live inside one laboratory.
+        </p>
+
+      </div>
+
+
+
+      <div class="feature-card">
+
+        <div class="feature-number">
+          02
+        </div>
+
+        <h2>
+          Conversion Testing
+        </h2>
+
+        <p>
+          Build lead funnels, product funnels,
+          forms, checkout flows and thank-you
+          pages for realistic testing.
+        </p>
+
+      </div>
+
+
+
+      <div class="feature-card">
+
+        <div class="feature-number">
+          03
+        </div>
+
+        <h2>
+          Tracking Laboratory
+        </h2>
+
+        <p>
+          Users can configure Meta Pixel,
+          Google Ads, GTM, GA4, DataLayer,
+          UTM and event tracking themselves.
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    Performance Marketing Lab © 2026
+
+  </footer>
 
 
 </body>
+
 </html>
