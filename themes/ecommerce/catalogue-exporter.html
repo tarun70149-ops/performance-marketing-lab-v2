@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DODS Commerce — Catalog Exporter</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+.top{background:#111827;color:#fff;padding:14px 24px;font-size:13px}
+.wrap{max-width:1100px;margin:auto;padding:36px 20px 60px}
+.head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:28px}
+h1{margin:0 0 8px;font-size:32px}.sub{margin:0;color:#64748b;line-height:1.6}
+.badge{background:#e8f0ff;color:#2454d6;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:700}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px;box-shadow:0 6px 24px rgba(15,23,42,.05)}
+.card h2{margin:0 0 8px;font-size:19px}.card p{color:#64748b;line-height:1.6}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.stat{background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:16px}
+.stat strong{display:block;font-size:24px;margin-bottom:5px}.stat span{font-size:12px;color:#64748b}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px}th,td{text-align:left;padding:12px;border-bottom:1px solid #e5e7eb}
+th{background:#f8fafc;color:#475569}code{background:#f1f5f9;padding:2px 5px;border-radius:5px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+button{border:0;border-radius:10px;padding:13px 18px;font-weight:700;cursor:pointer;font-size:14px}
+.primary{background:#111827;color:#fff}.secondary{background:#eef2ff;color:#243b8f}
+.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:12px;padding:14px;line-height:1.5;font-size:13px}
+#status{margin-top:14px;font-size:13px;color:#166534;font-weight:600}
+@media(max-width:700px){.head{display:block}.badge{display:inline-block;margin-top:14px}.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top">DODS Commerce Performance Marketing Lab · Catalog Tools</div>
+<main class="wrap">
+<section class="head"><div>
+<h1>Catalog Exporter</h1>
+<p class="sub">Export the demo store product dataset into a CSV for catalog/feed practice.</p>
+</div><span class="badge">LAB TOOL · DEMO</span></section>
+
+<section class="card">
+<h2>Product Feed Overview</h2>
+<p>This tool only creates a local CSV download. It does not connect to Meta, Google, or any advertising account.</p>
+<div class="stats">
+<div class="stat"><strong id="count">0</strong><span>Products</span></div>
+<div class="stat"><strong>INR</strong><span>Store currency</span></div>
+<div class="stat"><strong>CSV</strong><span>Export format</span></div>
+</div>
+<div class="actions">
+<button class="primary" id="export" data-event="catalog_export" data-export-type="meta">Export Catalog CSV</button>
+<button class="secondary" id="preview" data-event="catalog_preview">Preview Feed Data</button>
+</div>
+<div id="status"></div>
+</section>
+
+<section class="card">
+<h2>Feed Fields</h2>
+<p>The lab uses a commerce-feed structure centered on common catalog fields. Platform-specific validation can be learned when the marketer uploads the feed.</p>
+<table><thead><tr><th>Field</th><th>Purpose</th><th>Example</th></tr></thead><tbody id="fields"></tbody></table>
+</section>
+
+<section class="card"><div class="notice"><strong>Lab rule:</strong> the exporter prepares data; the learner is responsible for uploading/testing the feed inside the relevant advertising platform.</div></section>
+</main>
+
+<script>
+const products=[
+{id:"DODS001",title:"Wireless Headphones",description:"Premium wireless headphones with clear sound and comfortable over-ear design.",availability:"in stock",condition:"new",price:"2499.00 INR",link:"https://tarun70149-ops.github.io/performance-marketing-lab-v2/themes/ecommerce/product.html",image_link:"REPLACE_WITH_LIVE_PRODUCT_IMAGE_URL",brand:"DODS",google_product_category:"Electronics > Audio > Headphones",product_type:"Electronics"},
+{id:"DODS002",title:"Running Shoes",description:"Lightweight running shoes designed for everyday running and active lifestyles.",availability:"in stock",condition:"new",price:"1999.00 INR",link:"https://tarun70149-ops.github.io/performance-marketing-lab-v2/themes/ecommerce/",image_link:"REPLACE_WITH_LIVE_PRODUCT_IMAGE_URL",brand:"DODS",google_product_category:"Apparel & Accessories > Shoes",product_type:"Fashion"},
+{id:"DODS003",title:"Smart Watch",description:"Smart watch with fitness, notification and everyday activity features.",availability:"in stock",condition:"new",price:"2999.00 INR",link:"https://tarun70149-ops.github.io/performance-marketing-lab-v2/themes/ecommerce/",image_link:"REPLACE_WITH_LIVE_PRODUCT_IMAGE_URL",brand:"DODS",google_product_category:"Electronics > Wearable Technology > Smartwatches",product_type:"Electronics"},
+{id:"DODS004",title:"Premium Backpack",description:"Durable everyday backpack suitable for work, travel and daily carry.",availability:"in stock",condition:"new",price:"1499.00 INR",link:"https://tarun70149-ops.github.io/performance-marketing-lab-v2/themes/ecommerce/",image_link:"REPLACE_WITH_LIVE_PRODUCT_IMAGE_URL",brand:"DODS",google_product_category:"Luggage & Bags > Backpacks",product_type:"Accessories"}
+];
+
+const fields=[
+["id","Unique product identifier","DODS001"],
+["title","Product name","Wireless Headphones"],
+["description","Product description","Premium wireless headphones..."],
+["availability","Stock state","in stock"],
+["condition","Product condition","new"],
+["price","Price with currency","2499.00 INR"],
+["link","Product landing-page URL",".../product.html"],
+["image_link","Main product-image URL","live image URL"],
+["brand","Brand name","DODS"],
+["google_product_category","Google taxonomy category","Electronics > Audio > Headphones"],
+["product_type","Custom product category","Electronics"]
+];
+
+document.getElementById("count").textContent=products.length;
+const tbody=document.getElementById("fields");
+fields.forEach(f=>{const tr=document.createElement("tr");tr.innerHTML="<td><code>"+f[0]+"</code></td><td>"+f[1]+"</td><td>"+f[2]+"</td>";tbody.appendChild(tr)});
+
+function cell(v){return '"'+String(v??"").replace(/"/g,'""')+'"'}
+function makeCSV(){const headers=fields.map(x=>x[0]);return [headers.join(","),...products.map(p=>headers.map(h=>cell(p[h])).join(","))].join("\r\n")}
+
+document.getElementById("export").onclick=()=>{
+const blob=new Blob([makeCSV()],{type:"text/csv;charset=utf-8"});
+const url=URL.createObjectURL(blob);const a=document.createElement("a");
+a.href=url;a.download="dods-catalog-feed.csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+document.getElementById("status").textContent="Catalog CSV downloaded successfully.";
+};
+document.getElementById("preview").onclick=()=>{
+document.getElementById("status").textContent=products.map(p=>p.id+" — "+p.title+" — "+p.price).join(" | ");
+};
+</script>
+</body>
+</html>
